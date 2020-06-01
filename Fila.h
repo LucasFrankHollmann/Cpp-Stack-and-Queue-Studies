@@ -80,7 +80,7 @@ class Queue
 			printf("\n");//Pula uma linha para manter a organização.
 		}
 		
-		/* Insere um elemento no começo da fila
+		/* Insere um elemento no começo da fila.
 		 * 
 		 * v - valor inserido no novo elemento.
 		 */
@@ -105,6 +105,37 @@ class Queue
 			size++; //Incrementa o tamanho da fila.
 		}
 		
+		/* Remove o elemento no final da fila.
+		 * 
+		 * retorno - o endereço do valor de tail.
+		 */
+		int *pop()
+		{
+			if(head == NULL)//Se a lista estiver vazia, informa isso e retorna NULL, encerrando a função.
+			{
+				printf("Fila vazia\n");
+				return NULL;
+			}
+			else if(head->prox == NULL)//Se a lista contém só um elemento, redefine head e tail com os valores iniciais.
+			{
+				qNode *aux = tail; //Nó auxiliar para armazenar o valor de tail.
+				tail = NULL; //Reinicia o valor de tail.
+				head = NULL; //Reinicia o valor de head.
+				return &(aux->valor); //Retorna o endereço do valor de tail.
+			}
+			else //Se a lista contém dois elementos ou mais, remove tail porém e o atualiza.
+			{
+				qNode *aux = tail; //Nó auxiliar para armazenar o valor de tail.
+				tail = tail->prev; //Tail vira o valor anterior a ele.
+				tail->prox = NULL;
+				if(tail->prev != NULL)//Se o nó anterior ao novo tail não for nulo, atualiza-o.
+				{
+					qNode *aux2 = tail->prev; //Nó auxiliar para armazenar o valor anterior ao novo tail.
+					aux2->prox = tail;
+				}
+				return &(aux->valor);
+			}
+		}
 		
 };
 
