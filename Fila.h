@@ -121,6 +121,7 @@ class Queue
 				qNode *aux = tail; //Nó auxiliar para armazenar o valor de tail.
 				tail = NULL; //Reinicia o valor de tail.
 				head = NULL; //Reinicia o valor de head.
+				size--;
 				return &(aux->valor); //Retorna o endereço do valor de tail.
 			}
 			else //Se a lista contém dois elementos ou mais, remove tail porém e o atualiza.
@@ -133,6 +134,7 @@ class Queue
 					qNode *aux2 = tail->prev; //Nó auxiliar para armazenar o valor anterior ao novo tail.
 					aux2->prox = tail;
 				}
+				size--;
 				return &(aux->valor);
 			}
 		}
