@@ -2,6 +2,7 @@
 
 #include "Fila.h"
 #include "Deque.h"
+#include "Pilha.h"
 
 #include <stdio.h> //Biblioteca para usar printf.
 
@@ -64,7 +65,85 @@ int main()
 		printf("popR %d\n", *d);DQ.printQueue();DQ.getSize();
 	}
 	
+	printf("Pilha:\n");
+	Stack S;
+	
+	S.getSize(true);
+	S.isEmpty(true);
+	S.push(1);
+	S.push(2);
+	S.push(3);
+	S.push(4);
+	S.push(5);
+	S.push(6);
+	S.getSize(true);
+	S.isEmpty(true);
+	S.printStack();
+	int *v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	S.printStack();
+	
+	v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	S.printStack();
+	
+	v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	S.printStack();
+	
+	v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	S.printStack();
+	
+	S.push(4);
+	
+	v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	S.printStack();
+	
+	v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	S.printStack();
+	
+	v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	S.printStack();
+	
+	v = S.pop();
+	if(v != NULL)
+	{
+		printf("pop %d\n", *v);
+	}
+	
+	
 	
 	
 	return 0;
 }
+
+
+
+
+
+
