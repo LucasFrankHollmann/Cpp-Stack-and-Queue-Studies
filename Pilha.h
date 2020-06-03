@@ -54,11 +54,11 @@ class Stack
 			{
 				if(vazio)
 				{
-					printf("A pilha está vazia.\n");
+					printf("A pilha esta vazia.\n");
 				}
 				else
 				{
-					printf("A pilha não está vazia.\n");
+					printf("A pilha nao esta vazia.\n");
 				}
 			}
 			return vazio;
@@ -79,15 +79,43 @@ class Stack
 			{
 				printf("	%d\n", aux->valor);//Exibe o valor do nó atual.
 				
-				if(aux->down == NULL)//Se houverem nós abaixo do atual, exibe uma seta para baixo.
+				if(aux->down != NULL)//Se houverem nós abaixo do atual, exibe uma linha.
 				{
-					printf("	|\n	V\n");
+					printf("	--\n");
 				}
 				aux = aux->down;
 			}
 			
 			
 		}
+
+		/* Adiciona um elemento ao topo da pilha.
+		 * 
+		 * v - valor inserido.
+		 */
+		void push(int v)
+		{
+			sNode *novo = (sNode*)malloc(sizeof(sNode));
+			novo->down = NULL;
+			novo->valor = v;
+			
+			
+			if(isEmpty(false))//Se a pilha estiver vazia, insere o novo nó no top.
+			{
+				top = novo;//top se torna o novo nó.
+				size++;//Incrementa o tamanho da pilha.
+			}
+			else //Se a pilha não estiver vazia, atualiza top e insere o novo valor em cima.
+			{
+				novo->down = top; //O elemento abaixo do novo se torna o top.
+				top = novo; //O novo nó se torna o top.
+				size++;
+			}
+			
+			
+		}
+
+
 };
 
 
