@@ -115,7 +115,29 @@ class Stack
 			
 		}
 
-
+		/* Remove o elemento no topo da pilha.
+		 * 
+		 * retorno - o valor do elemento removido.
+		 */
+		int *pop()
+		{
+			if(isEmpty(false))//Se a pilha estiver vazia, exibe isso e finaliza a função.
+			{
+				printf("Pilha vazia\n");
+				return NULL;
+			}
+			else
+			{
+				int *v = &(top->valor);//Valor do elemento do topo a ser retornado.
+				
+				top = top->down;//Top se torna o elemento abaixo.
+				
+				size--;//Decrementa o tamanho da pilha.
+				
+				return v;
+			}
+			return NULL;
+		}
 };
 
 
